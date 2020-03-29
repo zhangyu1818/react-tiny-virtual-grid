@@ -1,0 +1,25 @@
+{
+  "name": "react-tiny-virtual-grid",
+  "version": "0.0.1",
+  "description": "react tiny virtual grid",
+  "main": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangyu1818/react-tiny-virtual-grid"
+  },
+  "homepage": "https://github.com/zhangyu1818/react-tiny-virtual-grid",
+  "author": "zhangyu1818 <723156735@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "father build"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.27",
+    "father": "^2.29.2",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}
