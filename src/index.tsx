@@ -1,6 +1,6 @@
-import React, { useMemo, useLayoutEffect, useRef, useState } from "react";
+import React, { useMemo, useLayoutEffect, useRef, useState } from 'react';
 
-import "./style.less";
+import './style.less';
 
 interface GridProps<T> {
   dataSource: T[];
@@ -94,8 +94,8 @@ function Grid<T>({
         prevState.current = newState;
       }
     };
-    containerDom.addEventListener("scroll", onScroll);
-    return () => containerDom.removeEventListener("scroll", onScroll);
+    containerDom.addEventListener('scroll', onScroll);
+    return () => containerDom.removeEventListener('scroll', onScroll);
   }, [bufferSizeLine, columns, dataSource, itemHeight]);
 
   const { start, end, offset } = state;
@@ -106,13 +106,10 @@ function Grid<T>({
         <div
           style={{
             transform: `translate3d(0,${offset}px,0)`,
-            willChange: "transform"
+            willChange: 'transform'
           }}
         >
-          <div
-            className="tiny-virtual-grid"
-            style={{ gridTemplateColumns: `repeat(${columns},1fr)` }}
-          >
+          <div className="tiny-virtual-grid">
             {dataSource.slice(start, end).map((item, index) => {
               const x = index % columns;
               const y = Math.floor(index / columns);
