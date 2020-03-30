@@ -24,7 +24,7 @@ function Grid<T>({
 }: GridProps<T>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const prevColumns = useRef(columns);
-  const isScroll = useRef(false);
+  const [stop, setStop] = useState(true);
   const [state, setState] = useState({
     start: 0,
     end: 0,
@@ -68,8 +68,8 @@ function Grid<T>({
 
     const onScroll = () => {
       if (timer) window.clearTimeout(timer);
-      timer = window.setTimeout(() => (isScroll.current = false));
-      isScroll.current = true;
+      timer = window.setTimeout(() => setStop(true));
+      setStop(false);
 
       const { scrollTop } = containerDom;
 
@@ -113,7 +113,7 @@ function Grid<T>({
             {dataSource.slice(start, end).map((item, index) => {
               const x = index % columns;
               const y = Math.floor(index / columns);
-              return children(item, [x, y], isScroll.current, index);
+              return children(item, [x, y], stop, index);
             })}
           </div>
         </div>
